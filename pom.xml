@@ -18,7 +18,7 @@
 
     <distributionManagement>
         <repository>
-            <id>github-private</id>
+            <id>github-wyattwas</id>
             <name>version-badge-maven-plugin</name>
             <url>https://maven.pkg.github.com/wyattwas/version-badge-maven-plugin</url>
         </repository>
