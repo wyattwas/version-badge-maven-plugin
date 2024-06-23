@@ -16,6 +16,14 @@
         <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>github-private</id>
+            <name>version-badge-maven-plugin</name>
+            <url>https://maven.pkg.github.com/wyattwas/version-badge-maven-plugin</url>
+        </repository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.maven</groupId>
