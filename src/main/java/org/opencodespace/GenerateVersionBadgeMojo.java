@@ -1,4 +1,4 @@
-package de.glyn;
+package org.opencodespace;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;

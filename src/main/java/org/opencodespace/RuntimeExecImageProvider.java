@@ -1,4 +1,4 @@
-package de.glyn;
+package org.opencodespace;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
