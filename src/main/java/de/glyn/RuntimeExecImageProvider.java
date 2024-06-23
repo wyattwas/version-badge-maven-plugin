@@ -1,9 +1,7 @@
 package de.glyn;
 
-import javax.imageio.ImageIO;
 import javax.inject.Named;
 import javax.inject.Singleton;
-import java.awt.*;
 import java.io.*;
 import java.net.URL;
 
@@ -18,7 +16,7 @@ public class RuntimeExecImageProvider implements ImageProvider{
             InputStream in = new BufferedInputStream(url.openStream());
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             byte[] buf = new byte[1024];
-            int n = 0;
+            int n;
             while (-1!=(n=in.read(buf)))
             {
                 out.write(buf, 0, n);

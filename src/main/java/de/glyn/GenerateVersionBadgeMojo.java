@@ -12,7 +12,6 @@ import javax.inject.Inject;
 
 @Mojo(name = "version-badge", defaultPhase = LifecyclePhase.INITIALIZE)
 public class GenerateVersionBadgeMojo extends AbstractMojo {
-    private String version;
 
     @Parameter(property = "url", defaultValue = "https://img.shields.io/badge/%s-%s-%s.png")
     private String url;
@@ -34,7 +33,7 @@ public class GenerateVersionBadgeMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
-        version = project.getVersion();
+        String version = project.getVersion();
 
         url = String.format(url, label, version, color);
 
