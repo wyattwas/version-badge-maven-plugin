@@ -1,5 +1,5 @@
 # version-badge-maven-plugin
-![Version](version-batch.png)
+![Version](version-batch.png) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/license/MIT)
 
 This is a very simple Maven plugin that can be used to automate the generation of version badges locally.
 This is especially usefully for cases where you use a private repository for example or you cant use much outside services.
@@ -47,3 +47,6 @@ The default values for the parameters are:
 
 ## Contributing
 If you need anything or have any ideas, feel free to contribute to the project.
+
+## License
+This project is licensed under the [MIT License](https://opensource.org/license/MIT) - see the [LICENSE](LICENSE) file for details
