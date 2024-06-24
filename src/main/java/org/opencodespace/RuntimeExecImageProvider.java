@@ -9,6 +9,12 @@ import java.net.URL;
 @Singleton
 public class RuntimeExecImageProvider implements ImageProvider{
 
+    /**
+     * This method will download the image from the url and save it to the output path
+     *
+     * @param stringUrl The url of the image
+     * @param outputPath The path to save the image
+     */
     @Override
     public void getImage(String stringUrl, String outputPath) {
         try {
