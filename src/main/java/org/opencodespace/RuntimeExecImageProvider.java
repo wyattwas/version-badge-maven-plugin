@@ -1,5 +1,7 @@
 package org.opencodespace;
 
+import org.apache.commons.lang3.SystemUtils;
+
 import javax.inject.Named;
 import javax.inject.Singleton;
 import java.io.*;
@@ -32,6 +34,18 @@ public class RuntimeExecImageProvider implements ImageProvider{
             byte[] response = out.toByteArray();
 
             try {
+                if (!SystemUtils.OS_NAME.contains("Windows")) {
+                    if (outputPath.contains(".png")) {
+                        FileOutputStream fos = new FileOutputStream(outputPath.replace("\\", "/"));
+                        fos.write(response);
+                        fos.close();
+                    } else {
+                        FileOutputStream fos = new FileOutputStream(outputPath + "/version-batch.png");
+                        fos.write(response);
+                        fos.close();
+                    }
+                }
+
                 if (outputPath.contains(".png")) {
                     FileOutputStream fos = new FileOutputStream(outputPath);
                     fos.write(response);
