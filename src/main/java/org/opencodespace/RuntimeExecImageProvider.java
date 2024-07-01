@@ -7,7 +7,7 @@ import java.net.URL;
 
 @Named
 @Singleton
-public class RuntimeExecImageProvider implements ImageProvider{
+public class RuntimeExecImageProvider implements ImageProvider {
 
     /**
      * This method will download the image from the url and save it to the output path
@@ -33,11 +33,11 @@ public class RuntimeExecImageProvider implements ImageProvider{
 
             try {
                 if (outputPath.contains(".png")) {
-                    FileOutputStream fos = new FileOutputStream(makeOSSpecificSlashesInPath(outputPath));
+                    FileOutputStream fos = new FileOutputStream(outputPath);
                     fos.write(response);
                     fos.close();
                 } else {
-                    FileOutputStream fos = new FileOutputStream(makeOSSpecificSlashesInPath(outputPath) + "version-batch.png");
+                    FileOutputStream fos = new FileOutputStream(outputPath + "version-batch.png");
                     fos.write(response);
                     fos.close();
                 }
@@ -47,17 +47,5 @@ public class RuntimeExecImageProvider implements ImageProvider{
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public String makeOSSpecificSlashesInPath(String path){
-        if (System.getProperty("os.name").contains("Windows")) {
-            path = path.replace("/", "\\");
-            path += "\\";
-        } else {
-            path = path.replace("\\", "/");
-            path += "/";
-        }
-
-        return path;
     }
 }

@@ -54,6 +54,8 @@ public class GenerateVersionBadgeMojo extends AbstractMojo {
 
         url = String.format(url, label, version, color);
 
+        outputPath = Utils.makeOSSpecificSlashesInPath(outputPath);
+
         imageProvider.getImage(url, outputPath);
 
         getLog().info("Version badge created: " + outputPath);
