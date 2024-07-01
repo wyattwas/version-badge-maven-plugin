@@ -7,6 +7,10 @@ This is especially usefully for cases where you use a private repository for exa
 Keep in mind that this application is going to make a request to [shields.io](https://shields.io) by default in order to get the image of for the badge.
 The plugin uses a [static badge](https://shields.io/badges/static-badge) and passes the project version to the website.
 
+### Important
+You can not have anything in your version by a dash (-) divided. Something like "1.1-SNAPSHOT" is not going to work. You can have something like "1.1_SNAPSHOT" though.
+It's even going to separate everything that's divided by an underscore (_) ![Version by underscore divided](version-batch-SNAPSHOT.png)
+
 ## Usage
 1. Add the plugin to your maven project
 ```xml
