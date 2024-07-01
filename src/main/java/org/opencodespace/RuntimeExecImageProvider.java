@@ -1,7 +1,5 @@
 package org.opencodespace;
 
-import org.apache.commons.lang3.SystemUtils;
-
 import javax.inject.Named;
 import javax.inject.Singleton;
 import java.io.*;
@@ -34,24 +32,12 @@ public class RuntimeExecImageProvider implements ImageProvider{
             byte[] response = out.toByteArray();
 
             try {
-                if (!SystemUtils.OS_NAME.contains("Windows")) {
-                    if (outputPath.contains(".png")) {
-                        FileOutputStream fos = new FileOutputStream(outputPath.replace("\\", "/"));
-                        fos.write(response);
-                        fos.close();
-                    } else {
-                        FileOutputStream fos = new FileOutputStream(outputPath + "/version-batch.png");
-                        fos.write(response);
-                        fos.close();
-                    }
-                }
-
                 if (outputPath.contains(".png")) {
-                    FileOutputStream fos = new FileOutputStream(outputPath);
+                    FileOutputStream fos = new FileOutputStream(makeOSSpecificSlashesInPath(outputPath));
                     fos.write(response);
                     fos.close();
                 } else {
-                    FileOutputStream fos = new FileOutputStream(outputPath + "\\version-batch.png");
+                    FileOutputStream fos = new FileOutputStream(makeOSSpecificSlashesInPath(outputPath) + "version-batch.png");
                     fos.write(response);
                     fos.close();
                 }
@@ -61,5 +47,17 @@ public class RuntimeExecImageProvider implements ImageProvider{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String makeOSSpecificSlashesInPath(String path){
+        if (System.getProperty("os.name").contains("Windows")) {
+            path = path.replace("/", "\\");
+            path += "\\";
+        } else {
+            path = path.replace("\\", "/");
+            path += "/";
+        }
+
+        return path;
     }
 }
